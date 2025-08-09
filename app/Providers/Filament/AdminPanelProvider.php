@@ -51,6 +51,10 @@ class AdminPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
+            ->renderHook(
+                'panels::body.end',
+                fn() => view('pwa-install-button')
+            )
             ->plugin(\TomatoPHP\FilamentPWA\FilamentPWAPlugin::make())
             ->authMiddleware([
                 Authenticate::class,
