@@ -52,6 +52,10 @@ class AdminPanelProvider extends PanelProvider
                 DispatchServingFilamentEvent::class,
             ])
             ->renderHook(
+                'panels::head.end',
+                fn() => view('pwa-head-tags')
+            )
+            ->renderHook(
                 'panels::body.end',
                 fn() => view('pwa-install-button')
             )
